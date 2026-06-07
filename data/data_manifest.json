@@ -1,0 +1,36 @@
+{
+  "dataset_name": "UCI SMS Spam Collection (HuggingFace: sms_spam)",
+  "hf_source": "datasets.load_dataset('sms_spam', split='train')",
+  "seed": 42,
+  "split_ratios": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "splits": {
+    "train": {
+      "rows": 3611,
+      "ham": 3162,
+      "spam": 449,
+      "ham_pct": 87.57,
+      "spam_pct": 12.43,
+      "sha256": "b597b99555ec19e042e517707d215834cf317f4814a8ccb5b9a5c6b4c7c51f2b"
+    },
+    "validation": {
+      "rows": 774,
+      "ham": 677,
+      "spam": 97,
+      "ham_pct": 87.47,
+      "spam_pct": 12.53,
+      "sha256": "6fd5044fa1f42d54c815429f177f7fa6ce27854ef713f898c03cd405065ecae8"
+    },
+    "test": {
+      "rows": 774,
+      "ham": 678,
+      "spam": 96,
+      "ham_pct": 87.6,
+      "spam_pct": 12.4,
+      "sha256": "8c9fe08c76fbd0da402ae16226e9018f3fbeef7c1adee106dd53c4ed017f8e38"
+    }
+  }
+}
