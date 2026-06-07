@@ -36,7 +36,7 @@
 |---|---|---|
 | Ananth | G25AIT2032 | Repo setup, orchestration, model training (v1/v2/v3), W&B tracking |
 | Member 2 | G25AIT2016 | Dataset preparation, data versioning, Git data pipeline |
-| Member 3 | G25AIT2103 | Model experiments (fine-tuning all versions) |
+| Shrikrishna Tripathi | G25AIT2103 | Model experiments (fine-tuning all versions) |
 | Member 4 | G25AIT2113 | Inference, evaluation, Docker, GitHub Actions |
 
 ---
