@@ -14,6 +14,8 @@
 | 🤗 HF Model — v2 ★ Best | [`https://huggingface.co/nagaananth/MLOPS_group-v2`](https://huggingface.co/nagaananth/MLOPS_group-v2) |
 | 🤗 HF Model — v3 | [`https://huggingface.co/nagaananth/MLOPS_group-v3`](https://huggingface.co/nagaananth/MLOPS_group-v3) |
 | 📊 W&B Project Dashboard | `https://wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group` |
+| 📊 W&B Project Dashboard | `https://wandb.ai/g25ait2103-iit-jodhpur/MLOPS_Group` |
+| 📊 W&B Project Dashboard | `https://wandb.ai/g25ait2113-iit-jodhpur/MLOPS_Group` |
 | 🐳 Docker Image (GHCR) | `ghcr.io/g25ait2032-prog/mlops_group-inference:latest` |
 | 📓 Kaggle Notebook (v1) | `https://www.kaggle.com/code/your-username/sms-spam-v1` |
 | 📓 Kaggle Notebook (v2) | `https://www.kaggle.com/code/your-username/sms-spam-v2` |
