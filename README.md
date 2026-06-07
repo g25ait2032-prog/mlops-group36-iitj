@@ -50,12 +50,12 @@
 | Task 1 — GitHub repo setup | G25AIT2032 | ██████ | | | |
 | Task 2 — Data prep & normalisation | G25AIT2016 | ██████ | ██ | | |
 | Task 3 — Model / tokeniser load | G25AIT2032 | | ████ | | |
-| Task 4 — Fine-tune v1/v2/v3 (Kaggle) | G25AIT2103 | | ████ | ████ | |
-| Task 5 — Push models to HF Hub | G25AIT2103 | | | ████ | |
+| Task 4 — Fine-tune v1/v2/v3 (Kaggle) | G25AIT2103 |████ | ████ | ████ | |
+| Task 5 — Push models to HF Hub | G25AIT2103 |████ | | ████ | |
 | Task 6 — Dockerfile & GHCR push | G25AIT2032 | | | ████ | |
 | Task 7 — GitHub Actions (CI + infer) | G25AIT2032 | | | ████ | ██ |
 | Task 8 — W&B experiment comparison | G25AIT2032 | | | ████ | ██ |
-| Task 9/10 — Inference & evaluation | G25AIT2113 | | | | ████ |
+| Task 9/10 — Inference & evaluation | G25AIT2113 |████ | |████ | ████ |
 | Report & README | G25AIT2113 | | | | ████ |
 
 > **Legend:** ██ = active work period. Each "Week" ≈ one sprint; overlap is intentional for review.
