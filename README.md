@@ -18,6 +18,8 @@
 | 📓 Kaggle Notebook (v1) | `https://www.kaggle.com/code/your-username/sms-spam-v1` |
 | 📓 Kaggle Notebook (v2) | `https://www.kaggle.com/code/your-username/sms-spam-v2` |
 | 📓 Kaggle Notebook (v3) | `https://www.kaggle.com/code/your-username/sms-spam-v3` |
+| 📓 Kaggle Notebook (v4) | `https://www.kaggle.com/code/your-username/sms-spam-v4` |
+
 
 > ⚠️ Replace placeholder Kaggle notebook URLs and member roll numbers before submission.
 
