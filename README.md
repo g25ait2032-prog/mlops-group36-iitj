@@ -1,5 +1,5 @@
 # End-to-End MLOps Pipeline
-**MLOps | PGD AI Program | IIT Jodhpur**
+**MLOps | PGD AI Program | IIT Jodhpur — Group 36**
 
 > SMS Spam Classification using **DistilBERT** (`distilbert-base-uncased`), fine-tuned on Kaggle with three hyperparameter versions, tracked with W&B, served via Docker (GHCR), and automated through GitHub Actions.
 
@@ -34,9 +34,29 @@
 
 | Name | Roll Number | Contributions |
 |---|---|---|
-| Ananth | G25AIT2032 | Data preparation, model training (v1/v2/v3), W&B tracking |
-| Member 2 | XXXXX | Docker, GitHub Actions CI & inference workflows |
-| Member 3 | XXXXX | README, report, code review, evaluation diagnostics |
+| Ananth | G25AIT2032 | Repo setup, orchestration, model training (v1/v2/v3), W&B tracking |
+| Member 2 | G25AIT2016 | Dataset preparation, data versioning, Git data pipeline |
+| Member 3 | G25AIT2103 | Model experiments (fine-tuning all versions) |
+| Member 4 | G25AIT2113 | Inference, evaluation, Docker, GitHub Actions |
+
+---
+
+## 📅 Gantt Chart — Task Allocation & Timeline
+
+| Task | Owner | Week 1 | Week 2 | Week 3 | Week 4 |
+|---|---|---|---|---|---|
+| Task 1 — GitHub repo setup | G25AIT2032 | ██████ | | | |
+| Task 2 — Data prep & normalisation | G25AIT2016 | ██████ | ██ | | |
+| Task 3 — Model / tokeniser load | G25AIT2032 | | ████ | | |
+| Task 4 — Fine-tune v1/v2/v3 (Kaggle) | G25AIT2103 | | ████ | ████ | |
+| Task 5 — Push models to HF Hub | G25AIT2103 | | | ████ | |
+| Task 6 — Dockerfile & GHCR push | G25AIT2032 | | | ████ | |
+| Task 7 — GitHub Actions (CI + infer) | G25AIT2032 | | | ████ | ██ |
+| Task 8 — W&B experiment comparison | G25AIT2032 | | | ████ | ██ |
+| Task 9/10 — Inference & evaluation | G25AIT2113 | | | | ████ |
+| Report & README | G25AIT2113 | | | | ████ |
+
+> **Legend:** ██ = active work period. Each "Week" ≈ one sprint; overlap is intentional for review.
 
 ---
 
@@ -49,13 +69,14 @@ MLOPS_Group/
 │   ├── inference.py         # Task 6 & 7 — Inference script (HF Hub → prediction)
 │   └── evaluate.py          # Optional — local evaluation helper
 ├── notebooks/
-│   └── mlops-gr-assignment.ipynb   # Tasks 3, 4, 5 — Kaggle training notebook (v1/v2/v3)
+│   └── group-36-mlops.ipynb  # Tasks 1-10 — Full pipeline notebook
 ├── .github/
 │   └── workflows/
 │       ├── ci.yml           # Task 7.1 — CI linting on push to develop
 │       └── inference.yml    # Task 7.2 — Manual inference trigger
 ├── data/
-│   └── id2label.json        # Label mapping (only file committed — no large data)
+│   ├── id2label.json        # Label mapping
+│   └── data_manifest.json   # SHA-256 hashes + row counts for each split
 ├── Dockerfile               # Task 6 — Inference container
 ├── requirements.txt
 ├── .gitignore
@@ -66,7 +87,7 @@ MLOPS_Group/
 
 ## 🧠 Model
 
-**`distilbert-base-uncased`** — a distilled version of BERT that retains 97 % of language understanding at 40 % smaller size (~66 M parameters, ~265 MB). Chosen because it:
+**`distilbert-base-uncased`** — a distilled version of BERT that retains 97% of language understanding at 40% smaller size (~66 M parameters, ~265 MB). Chosen because it:
 
 - Fits within Kaggle free-tier GPU quota (T4 x2)
 - Is well-suited to short, noisy SMS text
@@ -85,6 +106,17 @@ MLOPS_Group/
 | Test (15 %) | ~774 | 86.6 | 13.4 |
 
 **Cleaning steps:** lowercased → whitespace normalised → deduplicated (415 removed) → zero-leakage stratified split.
+
+### 🗂️ Data Versioning & Traceability
+
+Because training runs on Kaggle (no DVC daemon available), we use a **Git-tag + SHA-256 manifest** approach:
+
+1. **G25AIT2016** (Data Manager) prepares the cleaned CSVs locally, commits them to the `develop` branch, and pushes a `data_manifest.json` that records SHA-256 hashes and row/class counts for every split.
+2. A Git **lightweight tag** (`data-v1`, `data-v2`, `data-v3`) is applied to pin the exact commit used for each experiment.
+3. The manifest is also logged as a **W&B Artifact** — every W&B training run links to the data snapshot it trained on.
+4. The Kaggle training notebook pulls from `develop` at the start of each run, ensuring G25AIT2032/G25AIT2103 always train on G25AIT2016's committed data — not a locally generated copy.
+
+This gives full reproducibility: given a W&B run ID, you can trace back to the exact data split via the artifact → Git tag → commit SHA chain.
 
 ---
 
@@ -109,6 +141,22 @@ MLOPS_Group/
 
 ---
 
+## ✅ Sanity Checks
+
+The notebook (`group-36-mlops.ipynb`, Task 2c) runs **automated sanity checks** after every data preparation step:
+
+| Check | What it verifies |
+|---|---|
+| Schema | `text` and `label` columns exist; no NaN in any split |
+| Label distribution | Spam ≈ 13–14% across all splits (stratified correctness) |
+| Text quality | No empty strings; mean token length within expected range |
+| Leakage | Zero text overlap between train/val/test (belt-and-suspenders) |
+| Model output range | Softmax probabilities sum to 1.0 ± 1e-5; all probs in [0, 1] |
+
+All checks print `✅ PASS` or `❌ FAIL` with a summary count. A failure aborts the run.
+
+---
+
 ## ⚙️ Setup & Installation
 
 ```bash
@@ -128,18 +176,21 @@ pip install -r requirements.txt
 
 ## 🚀 Running Each Step
 
-### Step 1 — Prepare Data (local)
+### Step 1 — Prepare Data (local, by G25AIT2016)
 ```bash
 python src/prepare_data.py
 # Outputs: data/train.csv, data/validation.csv, data/test.csv,
-#          data/id2label.json, data/label2id.json
+#          data/id2label.json, data/label2id.json, data/data_manifest.json
+# Then commit + push to develop:
+git add data/ && git commit -m "data(v1): prepared split" && git push origin develop
+git tag data-v1 && git push origin data-v1
 ```
 
-### Step 2 — Train on Kaggle
-1. Upload `notebooks/mlops-gr-assignment.ipynb` into a new Kaggle Notebook.
-2. Upload `data/train.csv`, `data/test.csv`, `data/id2label.json` as a Kaggle Dataset.
+### Step 2 — Train on Kaggle (G25AIT2103)
+1. Upload `notebooks/group-36-mlops.ipynb` into a new Kaggle Notebook.
+2. **Do NOT re-run Task 2** — the notebook pulls data from Git (Task 1b) so you use G25AIT2016's committed split.
 3. Enable GPU: **Settings → Accelerator → GPU T4 x2**.
-4. Add Kaggle Secrets: `WANDB_API_KEY_gr`, `HF_TOKEN_gr`.
+4. Add Kaggle Secrets: `WANDB_API_KEY_gr`, `HF_TOKEN_gr`, `GITHUB_TOKEN`.
 5. Set `VERSION = "v1"` in Cell 4 and run. Repeat for `"v2"` and `"v3"`.
 
 ### Step 3 — Run Inference Locally
@@ -184,6 +235,7 @@ docker run --rm \
 | `HF_TOKEN` | Hugging Face write token |
 | `HF_MODEL` | HF repo ID (e.g. `nagaananth/MLOPS_group-v2`) |
 | `WANDB_API_KEY` | W&B API key |
+| `GITHUB_TOKEN` | Auto-provided by GitHub Actions; also added as Kaggle Secret for notebook Git pushes |
 
 Add via: **Settings → Secrets and Variables → Actions → New repository secret**
 
@@ -192,6 +244,7 @@ Add via: **Settings → Secrets and Variables → Actions → New repository sec
 ## 📌 Notes
 
 - Training is done **only on Kaggle** — GitHub Actions handles CI (linting) and inference only.
-- Large data files (`train.csv`, `test.csv`) are excluded via `.gitignore`; only `id2label.json` is committed.
+- **Data flow:** G25AIT2016 commits cleaned CSVs → Git tag pins the version → Kaggle notebook pulls via `git pull` → training uses that exact split → manifest SHA-256 confirms identity.
+- Large data files (`train.csv`, `test.csv`) are committed to `develop` for reproducibility but listed in `.gitignore` on `main` to keep the default branch clean.
 - Three experiment versions (v1, v2, v3) are visible in the W&B dashboard — set project visibility to **Public** before submission.
 - All links must be publicly accessible at submission time.
