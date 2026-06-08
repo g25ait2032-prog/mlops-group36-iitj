@@ -1,0 +1,2 @@
+version,f1_weighted,accuracy,f1_macro,learning_rate,num_train_epochs,per_device_train_batch_size,per_device_eval_batch_size,warmup_steps,weight_decay,label_smoothing_factor
+v4,0.9948086471272883,0.9948320413436692,0.9880009301604527,1e-05,6,32,32,300,0.02,0.05
