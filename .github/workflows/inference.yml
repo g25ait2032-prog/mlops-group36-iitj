@@ -1,0 +1,54 @@
+name: Spam Classification Inference
+
+on:
+  workflow_dispatch:
+    inputs:
+      input_text:
+        description: "Message to classify"
+        required: true
+        type: string
+        default: "URGENT! You have won a 1-week cruise! Call now!"
+
+permissions:
+  contents: read
+  packages: read
+
+env:
+  IMAGE_NAME: ghcr.io/g25ait2032-prog/mlops_group-inference:latest
+  HF_MODEL: nagaananth/MLOPS_group-v2
+
+jobs:
+  inference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify image exists
+        run: docker manifest inspect ${{ env.IMAGE_NAME }}
+
+      - name: Pull image
+        run: docker pull ${{ env.IMAGE_NAME }}
+
+      - name: Run inference
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN_gr }}
+          INPUT_TEXT: ${{ github.event.inputs.input_text }}
+        run: |
+          echo "Running inference..."
+          echo "Input: $INPUT_TEXT"
+
+          docker run --rm \
+            -e HF_TOKEN \
+            -e HF_MODEL="${{ env.HF_MODEL }}" \
+            -e INPUT_TEXT \
+            ${{ env.IMAGE_NAME }}
+
+      - name: Success
+        run: echo "Inference completed successfully."
