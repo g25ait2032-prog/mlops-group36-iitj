@@ -1,3 +1,34 @@
-- name: Train model
-  run: |
-    python train.py
+name: Train Model
+
+on:
+  workflow_dispatch:
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install -r requirements.txt
+      - run: pip install kaggle
+
+      - name: Configure Kaggle
+        run: |
+          mkdir -p ~/.kaggle
+          echo '{"username":"${{ secrets.KAGGLE_USERNAME }}","key":"${{ secrets.KAGGLE_KEY }}"}' > ~/.kaggle/kaggle.json
+          chmod 600 ~/.kaggle/kaggle.json
+
+      - name: Download Dataset
+        run: |
+          kaggle datasets download \
+            uciml/sms-spam-collection-dataset \
+            --unzip \
+            -p data/
+
+      - name: Train Model
+        run: python train.py
