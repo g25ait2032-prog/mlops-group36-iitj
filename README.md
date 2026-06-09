@@ -51,13 +51,13 @@ print("✅ README.md updated with badges and pushed to GitHub")
 | Resource | URL |
 |---|---|
 | 🐙 GitHub Repository | [`https://github.com/g25ait2032-prog/MLOPS_Group`](https://github.com/g25ait2032-prog/MLOPS_Group) |
-| 🤗 HF Model — v1 | [`https://huggingface.co/nagaananth/MLOPS_group-v1`](https://huggingface.co/nagaananth/MLOPS_group-v1) |
-| 🤗 HF Model — v2 ★ Best | [`https://huggingface.co/nagaananth/MLOPS_group-v2`](https://huggingface.co/nagaananth/MLOPS_group-v2) |
-| 🤗 HF Model — v3 | [`https://huggingface.co/nagaananth/MLOPS_group-v3`](https://huggingface.co/nagaananth/MLOPS_group-v3) |
+| 🤗 HF Model — v1 ★ Best | https://huggingface.co/nagaananth/MLOPS_group-v1 |
+| 🤗 HF Model — v2 | https://huggingface.co/nagaananth/MLOPS_group-v2 |
+| 🤗 HF Model — v3 | https://huggingface.co/nagaananth/MLOPS_group-v3 |
 | 🤗 HF Model — v4 | [`https://huggingface.co/nagaananth/MLOPS_group-v3`](https://huggingface.co/nagaananth/MLOPS_group-v3) |
 | 📊 W&B Project Dashboard | `https://wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group` |
 | 🐳 Docker Image (GHCR) | `ghcr.io/g25ait2032-prog/mlops_group-inference:latest` |
-| 📓 Kaggle Notebook (v1) | `https://www.kaggle.com/code/your-username/sms-spam-v1` |
+| 📓 Kaggle Notebook (v1) | `(https://www.kaggle.com/code/g25ait2032/9ju-gr36-mlops/edit)` |
 | 📓 Kaggle Notebook (v2) | `https://www.kaggle.com/code/your-username/sms-spam-v2` |
 | 📓 Kaggle Notebook (v3) | `https://www.kaggle.com/code/your-username/sms-spam-v3` |
 | 📓 Kaggle Notebook (v4) | `https://www.kaggle.com/code/your-username/sms-spam-v4` |
@@ -166,36 +166,68 @@ This gives full reproducibility: given a W&B run ID, you can trace back to the e
 
 ## 🧪 Experiment Comparison
 
-| Hyperparameter | v1 | v2 ★ | v3 |
+| Hyperparameter | v1 ★ Best | v2 | v3 |
 |---|---|---|---|
-| Learning Rate | 3e-5 | 2e-5 | 3e-5 |
-| Epochs | 3 | 5 | 4 |
-| Batch Size | 16 | 32 | 16 |
+| Learning Rate | 3e-5 | 2e-5 | 2e-5 |
+| Epochs | 3 | 5 | 5 |
+| Batch Size | 16 | 32 | 32 |
 | Warmup Steps | 100 | 200 | 100 |
 | Padding | dynamic | max_length | max_length |
 | Early Stopping | No | Yes (p=2) | Yes (p=2) |
 
-| Metric | v1 | v2 ★ | v3 |
+| Metric | v1 ★ Best | v2 | v3 |
 |---|---|---|---|
-| Accuracy | — | — | — |
-| F1 (weighted) | — | — | — |
-| Val Loss | — | — | — |
+| Accuracy | 0.9987 | 0.9935 | 0.9935 |
+| F1 (weighted) | 0.9987 | 0.9935 | 0.9935 |
+| F1 (macro) | 0.9970 | 0.9851 | 0.9851 |
+| Precision | 0.9987 | 0.9935 | 0.9935 |
+| Recall | 0.9987 | 0.9935 | 0.9935 |
+| Val Loss | 0.0183 | 0.0292 | 0.0376 |
 
-> Fill in Accuracy, F1, and Val Loss after running both Kaggle experiments. See [W&B dashboard](https://wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group) for live charts.
+> **Best experiment:** **v1** achieved the highest weighted F1 score (**0.9987**) and the lowest validation loss (**0.0183**), outperforming both v2 and v3 despite using fewer epochs.
+>
+> Full experiment results are available in `experiment_results.csv`. Training curves and logs can be explored in the W&B dashboard: https://wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group
 
 ---
 
 ## ✅ Sanity Checks
 
-The notebook (`group-36-mlops.ipynb`, Task 2c) runs **automated sanity checks** after every data preparation step:
+The notebook (`group-36-mlops.ipynb`, Task 2a) performs automated sanity checks after data preparation to ensure dataset quality and prevent data leakage.
 
-| Check | What it verifies |
-|---|---|
-| Schema | `text` and `label` columns exist; no NaN in any split |
-| Label distribution | Spam ≈ 13–14% across all splits (stratified correctness) |
-| Text quality | No empty strings; mean token length within expected range |
-| Leakage | Zero text overlap between train/val/test (belt-and-suspenders) |
-| Model output range | Softmax probabilities sum to 1.0 ± 1e-5; all probs in [0, 1] |
+| Check | What it verifies | Result |
+|---|---|---|
+| Schema Validation | `text` and `label` columns exist in all splits | ✅ PASS |
+| Missing Values | No `NaN` values in `text` or `label` columns | ✅ PASS |
+| Label Distribution | Stratified split preserves spam ratio (12–16%) | ✅ PASS |
+| Text Quality | No empty messages and reasonable average token length (5–50) | ✅ PASS |
+| Data Leakage | No overlap between train, validation, and test sets | ✅ PASS |
+
+### Split Statistics
+
+| Split | Spam % | Empty Texts | Mean Token Length |
+|---|---:|---:|---:|
+| Train | 12.43% | 0 | 15.4 |
+| Validation | 12.53% | 0 | 15.5 |
+| Test | 12.40% | 0 | 15.4 |
+
+### Leakage Checks
+
+| Comparison | Overlap |
+|---|---:|
+| Train ∩ Validation | 0 |
+| Train ∩ Test | 0 |
+| Validation ∩ Test | 0 |
+
+### Summary
+
+- ✅ **21 / 21 sanity checks passed**
+- ✅ Class distribution preserved across all splits
+- ✅ No missing values detected
+- ✅ No empty messages detected
+- ✅ No train/validation/test leakage detected
+- ✅ Dataset passed all quality validation checks
+
+> **Result:** 🎉 All sanity checks passed — data is clean and ready for model training.
 
 All checks print `✅ PASS` or `❌ FAIL` with a summary count. A failure aborts the run.
 
