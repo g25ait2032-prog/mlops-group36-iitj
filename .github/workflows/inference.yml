@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       input_text:
-        description: "Message to classify"
+        description: "Message to classify as Ham or Spam"
         required: true
         type: string
         default: "URGENT! You have won a 1-week cruise! Call now!"
@@ -19,36 +19,57 @@ env:
 
 jobs:
   inference:
+    name: Run Spam Classification
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
-      - name: Login to GHCR
+      - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Verify image exists
-        run: docker manifest inspect ${{ env.IMAGE_NAME }}
+      - name: Verify container image exists
+        run: |
+          docker manifest inspect ${{ env.IMAGE_NAME }}
 
-      - name: Pull image
-        run: docker pull ${{ env.IMAGE_NAME }}
+      - name: Pull container image
+        run: |
+          docker pull ${{ env.IMAGE_NAME }}
 
       - name: Run inference
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN_gr }}
           INPUT_TEXT: ${{ github.event.inputs.input_text }}
         run: |
-          echo "Running inference..."
-          echo "Input: $INPUT_TEXT"
+          echo "================================="
+          echo "Spam Classification Inference"
+          echo "================================="
+          echo "Input Text:"
+          echo "$INPUT_TEXT"
+          echo ""
 
           docker run --rm \
             -e HF_TOKEN \
             -e HF_MODEL="${{ env.HF_MODEL }}" \
             -e INPUT_TEXT \
-            ${{ env.IMAGE_NAME }}
+            ${{ env.IMAGE_NAME }} | tee inference_output.txt
+
+          echo ""
+          echo "================================="
+          echo "Inference Output"
+          echo "================================="
+          cat inference_output.txt
+
+      - name: Upload inference logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: inference-results
+          path: inference_output.txt
+          retention-days: 7
 
       - name: Success
-        run: echo "Inference completed successfully."
+        run: |
+          echo "Inference completed successfully."
