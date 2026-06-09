@@ -5,6 +5,47 @@
 
 ---
 
+# ── Write badges into README.md and push ──────────────────────────────────────
+readme_path = f"{REPO_PATH}/README.md"
+
+readme_content = f"""# MLOps Group 36 — IIT Jodhpur
+SMS Spam Classification · DistilBERT · Kaggle + W&B + HuggingFace + GitHub Actions
+
+## ⚙️ GitHub Actions — Pipeline Status
+
+| Workflow | Status |
+|----------|--------|
+| CI | [![CI](https://github.com/{REPO_OWNER}/{REPO_NAME}/actions/workflows/ci.yml/badge.svg)](https://github.com/{REPO_OWNER}/{REPO_NAME}/actions/workflows/ci.yml) |
+| Inference | [![Inference](https://github.com/{REPO_OWNER}/{REPO_NAME}/actions/workflows/inference.yml/badge.svg)](https://github.com/{REPO_OWNER}/{REPO_NAME}/actions/workflows/inference.yml) |
+| Training | [![Train](https://github.com/{REPO_OWNER}/{REPO_NAME}/actions/workflows/train.yml/badge.svg)](https://github.com/{REPO_OWNER}/{REPO_NAME}/actions/workflows/train.yml) |
+
+## 🔗 Key Links
+| Resource | URL |
+|----------|-----|
+| HF Model v1 | https://huggingface.co/{HF_USERNAME}/MLOPS_group-v1 |
+| HF Model v2 | https://huggingface.co/{HF_USERNAME}/MLOPS_group-v2 |
+| HF Model v3 | https://huggingface.co/{HF_USERNAME}/MLOPS_group-v3 |
+| W&B Project | https://wandb.ai/{WB_ENTITY}/{WB_PROJECT} |
+| GHCR Image  | ghcr.io/{REPO_OWNER}/mlops_group-inference:latest |
+"""
+
+with open(readme_path, "w") as f:
+    f.write(readme_content)
+
+# Git commit and push
+import subprocess
+for cmd in [
+    ["git", "-C", REPO_PATH, "config", "user.name", "G25AIT2032"],
+    ["git", "-C", REPO_PATH, "config", "user.email", "g25ait2032@iitj.ac.in"],
+    ["git", "-C", REPO_PATH, "add", "README.md"],
+    ["git", "-C", REPO_PATH, "commit", "-m", "docs: add CI/Inference badges to README [Group36]"],
+    ["git", "-C", REPO_PATH, "push", "origin", "main"],
+]:
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    print(r.stdout or r.stderr)
+
+print("✅ README.md updated with badges and pushed to GitHub")
+
 ## 🔗 Live Links
 
 | Resource | URL |
