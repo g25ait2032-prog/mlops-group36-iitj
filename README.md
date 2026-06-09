@@ -5,7 +5,7 @@
 
 ---
 
-# ── Write badges into README.md and push ──────────────────────────────────────
+# Write badges into README.md and push 
 readme_path = f"{REPO_PATH}/README.md"
 
 readme_content = f"""# MLOps Group 36 — IIT Jodhpur
@@ -15,9 +15,9 @@ SMS Spam Classification · DistilBERT · Kaggle + W&B + HuggingFace + GitHub Act
 
 | Workflow | Status |
 |----------|--------|
-| CI | [![CI](https://github.com/{REPO_OWNER}/{REPO_NAME}/actions/workflows/ci.yml/badge.svg)](https://github.com/{REPO_OWNER}/{REPO_NAME}/actions/workflows/ci.yml) |
-| Inference | [![Inference](https://github.com/{REPO_OWNER}/{REPO_NAME}/actions/workflows/inference.yml/badge.svg)](https://github.com/{REPO_OWNER}/{REPO_NAME}/actions/workflows/inference.yml) |
-| Training | [![Train](https://github.com/{REPO_OWNER}/{REPO_NAME}/actions/workflows/train.yml/badge.svg)](https://github.com/{REPO_OWNER}/{REPO_NAME}/actions/workflows/train.yml) |
+| CI | [![CI](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/ci.yml/badge.svg)](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/ci.yml) |
+| Inference | [![Inference](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/inference.yml/badge.svg)](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/inference.yml) |
+| Training | [![Train](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/train.yml/badge.svg)](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/train.yml) |
 
 ## 🔗 Key Links
 | Resource | URL |
