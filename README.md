@@ -143,7 +143,7 @@ MLOPS_Group/
 
 ---
 
-## 📊 Dataset
+## 📊 Dataset    
 
 **UCI SMS Spam Collection** loaded via `datasets` (`sms_spam`).
 
@@ -155,7 +155,7 @@ MLOPS_Group/
 
 **Cleaning steps:** lowercased → whitespace normalised → deduplicated (415 removed) → zero-leakage stratified split.
 
-### 🗂️ Data Versioning & Traceability
+###  Data Versioning & Traceability
 
 Because training runs on Kaggle (no DVC daemon available), we use a **Git-tag + SHA-256 manifest** approach:
 
@@ -168,7 +168,7 @@ This gives full reproducibility: given a W&B run ID, you can trace back to the e
 
 ---
 
-## 🧪 Experiment Comparison
+##  Experiment Comparison
 
 | Hyperparameter | v1 ★ Best | v2 | v3 |
 |---|---|---|---|
@@ -194,7 +194,7 @@ This gives full reproducibility: given a W&B run ID, you can trace back to the e
 
 ---
 
-## ✅ Sanity Checks
+##  Sanity Checks
 
 The notebook (`group-36-mlops.ipynb`, Task 2a) performs automated sanity checks after data preparation to ensure dataset quality and prevent data leakage.
 
