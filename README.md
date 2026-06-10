@@ -56,7 +56,7 @@ print("✅ README.md updated with badges and pushed to GitHub")
 |---|---|
 | 🐙 GitHub Repository | [`https://github.com/g25ait2032-prog/MLOPS_Group`](https://github.com/g25ait2032-prog/MLOPS_Group) |
 | 🤗 HF Model — v1 ★ Best | https://huggingface.co/nagaananth/MLOPS_group-v1 |
-| 🤗 HF Model — v2 | https://huggingface.co/nagaananth/MLOPS_group-v2 |
+| 🤗 HF Model — v2 | https://huggingface.co/ShrikrishnaIITJ/MLOPS_group-v2 |
 | 🤗 HF Model — v3 | https://huggingface.co/nagaananth/MLOPS_group-v3 |
 | 🤗 HF Model — v4 | [`https://huggingface.co/nagaananth/MLOPS_group-v3`](https://huggingface.co/nagaananth/MLOPS_group-v3) |
 | 📊 W&B Project Dashboard | `https://wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group` |
