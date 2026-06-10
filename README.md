@@ -17,7 +17,7 @@ SMS Spam Classification · DistilBERT · Kaggle + W&B + HuggingFace + GitHub Act
 |----------|--------|
 | CI | [![CI](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/ci.yml/badge.svg)](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/ci.yml) |
 | Inference | [![Inference](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/inference.yml/badge.svg)](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/inference.yml) |
-| Training | [![Train](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/train.yml/badge.svg)](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/train.yml) |
+
 
 ## 🔗 Key Links
 | Resource | URL |
@@ -27,7 +27,10 @@ SMS Spam Classification · DistilBERT · Kaggle + W&B + HuggingFace + GitHub Act
 | HF Model v3 | https://huggingface.co/{HF_USERNAME}/MLOPS_group-v3 |
 | HF Model v4 | https://huggingface.co/{HF_USERNAME}/MLOPS_group-v4 |
 | W&B Project | https://wandb.ai/{WB_ENTITY}/{WB_PROJECT} |
-| GHCR Image  | ghcr.io/{REPO_OWNER}/mlops_group-inference:latest |
+| Docker Hub Image | https://hub.docker.com/r/dvnananth/mlops-group36 |
+| Docker Image Tag | `dvnananth/mlops-group36:v1` |
+| GitHub Repository | https://github.com/g25ait2032-prog/mlops-group36-iitj |
+| Index digest |sha256:4a0b5eb73254def900466d8c55f3b8d48cee25b7e9d8be69215e70161647246a  |
 """
 
 with open(readme_path, "w") as f:
@@ -64,7 +67,7 @@ print("✅ README.md updated with badges and pushed to GitHub")
 | 📓 Kaggle Notebook (v4) | `https://www.kaggle.com/code/your-username/sms-spam-v4` |
 
 
-> ⚠️ Replace placeholder Kaggle notebook URLs and member roll numbers before submission.
+
 
 ---
 
@@ -80,9 +83,9 @@ print("✅ README.md updated with badges and pushed to GitHub")
 | Name | Roll Number | Contributions |
 |---|---|---|
 | Ananth | G25AIT2032 | Repo setup, orchestration, model training (v1/v2/v3), W&B tracking |
-| Member 2 | G25AIT2016 | Dataset preparation, data versioning, Git data pipeline |
+| Anu Kumar | G25AIT2016 | Dataset preparation, data versioning, Git data pipeline |
 | Shrikrishna Tripathi | G25AIT2103 | Model experiments (fine-tuning all versions) |
-| Member 4 | G25AIT2113 | Inference, evaluation, Docker, GitHub Actions |
+| Sudeb Ghosh| G25AIT2113 | Inference, evaluation, Docker, GitHub Actions |
 
 ---
 
