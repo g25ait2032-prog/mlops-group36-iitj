@@ -20,20 +20,19 @@ def load_model_and_tokenizer(model_name: str, hf_token: str | None = None):
     return model, tokenizer
 
 def predict(model, tokenizer, text: str) -> dict:
-    # Use 'with torch.inference_mode()' for better performance than 'torch.no_grad()'
     with torch.inference_mode():
         inputs = tokenizer(
             text,
             return_tensors="pt",
             truncation=True,
-            padding=True, # Added padding for robustness
+            padding=True,
             max_length=128
         ).to(DEVICE)
-        
-        # Modern models often don't need token_type_ids; 
-        # model(**inputs) automatically ignores keys that aren't in the model's forward() signature.
+
+        inputs.pop("token_type_ids", None)
+
         outputs = model(**inputs)
-        
+
         probabilities = torch.nn.functional.softmax(outputs.logits, dim=-1)[0]
         predicted_index = torch.argmax(probabilities).item()
         confidence = probabilities[predicted_index].item()
