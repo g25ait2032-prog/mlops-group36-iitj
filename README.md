@@ -25,6 +25,7 @@ SMS Spam Classification · DistilBERT · Kaggle + W&B + HuggingFace + GitHub Act
 | HF Model v1 | https://huggingface.co/{HF_USERNAME}/MLOPS_group-v1 |
 | HF Model v2 | https://huggingface.co/{HF_USERNAME}/MLOPS_group-v2 |
 | HF Model v3 | https://huggingface.co/{HF_USERNAME}/MLOPS_group-v3 |
+| HF Model v4 | https://huggingface.co/{HF_USERNAME}/MLOPS_group-v4 |
 | W&B Project | https://wandb.ai/{WB_ENTITY}/{WB_PROJECT} |
 | GHCR Image  | ghcr.io/{REPO_OWNER}/mlops_group-inference:latest |
 """
