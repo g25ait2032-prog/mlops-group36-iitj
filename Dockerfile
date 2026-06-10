@@ -24,7 +24,7 @@ RUN pip install --no-cache-dir \
         accelerate==0.30.0
 
 # Copy inference script
-COPY src/inference.py .
+COPY src/inference.py /app/inference.py
 
 # Pre-download model weights at build time (optional — makes runtime faster)
 # Remove this RUN block if image size is a concern
