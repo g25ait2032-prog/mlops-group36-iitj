@@ -54,17 +54,17 @@ print("✅ README.md updated with badges and pushed to GitHub")
 
 | Resource | URL |
 |---|---|
-| 🐙 GitHub Repository | [`https://github.com/g25ait2032-prog/MLOPS_Group`](https://github.com/g25ait2032-prog/MLOPS_Group) |
-| 🤗 HF Model — v1 ★ Best | https://huggingface.co/nagaananth/MLOPS_group-v1 |
-| 🤗 HF Model — v2 | https://huggingface.co/ShrikrishnaIITJ/MLOPS_group-v2 |
-| 🤗 HF Model — v3 | https://huggingface.co/nagaananth/MLOPS_group-v3 |
-| 🤗 HF Model — v4 | [`https://huggingface.co/nagaananth/MLOPS_group-v3`](https://huggingface.co/nagaananth/MLOPS_group-v3) |
-| 📊 W&B Project Dashboard | `https://wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group` |
-| 🐳 Docker Image (GHCR) | `ghcr.io/g25ait2032-prog/mlops_group-inference:latest` |
-| 📓 Kaggle Notebook (v1) | `(https://www.kaggle.com/code/g25ait2032/9ju-gr36-mlops/edit)` |
-| 📓 Kaggle Notebook (v2) | `https://www.kaggle.com/code/your-username/sms-spam-v2` |
-| 📓 Kaggle Notebook (v3) | `https://www.kaggle.com/code/your-username/sms-spam-v3` |
-| 📓 Kaggle Notebook (v4) | `https://www.kaggle.com/code/your-username/sms-spam-v4` |
+|  GitHub Repository | [`https://github.com/g25ait2032-prog/MLOPS_Group`](https://github.com/g25ait2032-prog/MLOPS_Group) |
+|  HF Model — v1 ★ Best | https://huggingface.co/nagaananth/MLOPS_group-v1 |
+|  HF Model — v2 | https://huggingface.co/ShrikrishnaIITJ/MLOPS_group-v2 |
+|  HF Model — v3 | https://huggingface.co/nagaananth/MLOPS_group-v3 |
+|  HF Model — v4 | [`https://huggingface.co/nagaananth/MLOPS_group-v3`](https://huggingface.co/nagaananth/MLOPS_group-v3) |
+|  W&B Project Dashboard | `https://wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group` |
+|  Docker Image (GHCR) | `ghcr.io/g25ait2032-prog/mlops_group-inference:latest` |
+|  Kaggle Notebook (v1) | `(https://www.kaggle.com/code/g25ait2032/9ju-gr36-mlops/edit)` |
+|  Kaggle Notebook (v2) | `https://www.kaggle.com/code/your-username/sms-spam-v2` |
+|  Kaggle Notebook (v3) | `https://www.kaggle.com/code/your-username/sms-spam-v3` |
+|  Kaggle Notebook (v4) | `https://www.kaggle.com/code/your-username/sms-spam-v4` |
 
 
 
