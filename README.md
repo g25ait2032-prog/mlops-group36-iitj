@@ -1,75 +1,77 @@
 # MLOps Group 36 — IIT Jodhpur
 
-SMS Spam Classification with DistilBERT.
+> **SMS Spam Classification** using `distilbert-base-uncased`, fine-tuned on Kaggle across four hyperparameter versions, tracked with W&B, served via Docker (GHCR & Docker Hub), and automated through GitHub Actions.
 
-| Roll | Name | Role |
-|------|------|------|
-| G25AIT2032 | Naga Ananth | Admin / Git Owner |
-| G25AIT2016 | AnuKumar | Dataset preparation |
-| G25AIT2103 | Shri Krishna | Model experiments |
-| G25AIT2113 | Sudeb | Inference, evaluation |
-
-# End-to-End MLOps Pipeline
-**MLOps | PGD AI Program | IIT Jodhpur**
-
-> SMS Spam Classification using **DistilBERT** (`distilbert-base-uncased`), fine-tuned on Kaggle with three hyperparameter versions, tracked with W&B, served via Docker (GHCR), and automated through GitHub Actions.
+[![CI](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/ci.yml/badge.svg)](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/ci.yml)
+[![Inference](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/inference.yml/badge.svg)](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions/workflows/inference.yml)
 
 ---
 
-##  Live Links
-
-| Resource | URL |
-|---|---|
-|  GitHub Repository | [`https://github.com/g25ait2032-prog/MLOPS_Group`](https://github.com/g25ait2032-prog/MLOPS_Group) |
-|  HF Model — v1 | [`https://huggingface.co/nagaananth/MLOPS_group-v1`](https://huggingface.co/nagaananth/MLOPS_group-v1) |
-|  HF Model — v2 ★ Best | [`https://huggingface.co/nagaananth/MLOPS_group-v2`](https://huggingface.co/nagaananth/MLOPS_group-v2) |
-|  HF Model — v3 | [`https://huggingface.co/nagaananth/MLOPS_group-v3`](https://huggingface.co/nagaananth/MLOPS_group-v3) |
-|  W&B Project Dashboard | `https://wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group` |
-|  Docker Image (GHCR) | `ghcr.io/g25ait2032-prog/mlops_group-inference:latest` |
-|  Kaggle Notebook (v1) | `https://www.kaggle.com/code/your-username/sms-spam-v1` |
-|  Kaggle Notebook (v2) | `https://www.kaggle.com/code/your-username/sms-spam-v2` |
-|  Kaggle Notebook (v3) | `https://www.kaggle.com/code/your-username/sms-spam-v3` |
-
->  Replace placeholder Kaggle notebook URLs and member roll numbers before submission.
-
----
-
-##  Pipeline Status
-
-![CI](https://github.com/g25ait2032-prog/MLOPS_Group/actions/workflows/ci.yml/badge.svg)
-![Inference Pipeline](https://github.com/g25ait2032-prog/MLOPS_Group/actions/workflows/inference.yml/badge.svg)
-
----
-
-##  Group Members
+## Group Members
 
 | Name | Roll Number | Contributions |
 |---|---|---|
-| Anukumar K | G25AIT2016 | Data preparation, model training (v1, v2, v3), and W&B experiment tracking. |
-| Duggirala Vnaga Ananth | G25AIT2032 | Containerization (Docker), GitHub Actions CI/CD, and inference workflows. |
-| Shrikrishna Tripathi | G25AIT2103 | Documentation (README/Report), code review, and evaluation diagnostics. |
-| Sudeb Ghosh | G25AIT2113 | Experiment analysis, version documentation, and final reporting. |
-
+| Duggirala Vnaga Ananth | G25AIT2032 | Repository setup, workflow orchestration, model training (v1–v4), W&B tracking, Docker/GHCR, GitHub Actions CI/CD |
+| Anukumar K | G25AIT2016 | Dataset preparation, data cleaning, preprocessing pipeline, data versioning |
+| Shrikrishna Tripathi | G25AIT2103 | Model experimentation and fine-tuning across versions, HF Hub deployment |
+| Sudeb Ghosh | G25AIT2113 | Inference pipeline, evaluation (adversarial + latency), Dockerization, final reporting |
 
 ---
 
-##  Project Structure
+## Live Links
+
+| Resource | URL |
+|---|---|
+| GitHub Repository | [github.com/g25ait2032-prog/mlops-group36-iitj](https://github.com/g25ait2032-prog/mlops-group36-iitj) |
+| HF Model — v1 | [nagaananth/MLOPS_group-v1](https://huggingface.co/nagaananth/MLOPS_group-v1) |
+| HF Model — v2 ★ Best | [nagaananth/MLOPS_group-v2](https://huggingface.co/nagaananth/MLOPS_group-v2) |
+| HF Model — v3 | [nagaananth/MLOPS_group-v3](https://huggingface.co/nagaananth/MLOPS_group-v3) |
+| HF Model — v4 | [nagaananth/MLOPS_group-v4](https://huggingface.co/nagaananth/MLOPS_group-v4) |
+| W&B Project Dashboard | [wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group](https://wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group) |
+| Docker Image (GHCR) | `ghcr.io/g25ait2032-prog/mlops_group-inference:latest` |
+| Docker Image (Hub) | `dvnananth/mlops-group36:v1` |
+| GitHub Actions | [Actions Dashboard](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions) |
+
+---
+
+## Pipeline Status
+
+| Task | Owner | Status |
+|---|---|---|
+| Task 1 — GitHub repo setup | G25AIT2032 | ✅ Done |
+| Task 2 — Data prep & normalisation | G25AIT2016 | ✅ Done |
+| Task 3 — Model / tokeniser load | G25AIT2032 | ✅ Done |
+| Task 4 — Fine-tune v1/v2/v3/v4 (Kaggle) | G25AIT2103 | ✅ Done |
+| Task 5 — Push models to HF Hub | G25AIT2103 | ✅ Done |
+| Task 6 — Dockerfile & GHCR push | G25AIT2032 | ✅ Done |
+| Task 7 — GitHub Actions CI + Inference | G25AIT2032 | ✅ Done |
+| Task 8 — W&B experiment comparison | G25AIT2032 | ✅ Done |
+| Task 9/10 — Inference & evaluation | G25AIT2113 | ✅ Done |
+
+---
+
+## Project Structure
 
 ```
-MLOPS_Group/
+mlops-group36-iitj/
 ├── src/
-│   ├── prepare_data.py      # Task 2 — Data cleaning & normalisation
-│   ├── inference.py         # Task 6 & 7 — Inference script (HF Hub → prediction)
-│   └── evaluate.py          # Optional — local evaluation helper
+│   ├── prepare_data.py         # Task 2 — Data cleaning & normalisation
+│   ├── inference.py            # Task 6 & 7 — Inference script (HF Hub → prediction)
+│   └── evaluate.py             # Task 10 — Local evaluation helper
 ├── notebooks/
-│   └── mlops-gr-assignment.ipynb   # Tasks 3, 4, 5 — Kaggle training notebook (v1/v2/v3)
+│   └── MLOps_Group36_Final.ipynb   # Tasks 3–10 — Full training notebook (v1/v2/v3/v4)
+├── outputs/
+│   ├── experiment_results.csv
+│   ├── confusion_matrix.png
+│   ├── version_comparison.png
+│   └── run_summary.json
 ├── .github/
 │   └── workflows/
-│       ├── ci.yml           # Task 7.1 — CI linting on push to develop
-│       └── inference.yml    # Task 7.2 — Manual inference trigger
+│       ├── ci.yml              # Task 7.1 — CI linting (flake8) on push to main
+│       └── inference.yml       # Task 7.2 — Manual inference trigger + GHCR push
 ├── data/
-│   └── id2label.json        # Label mapping (only file committed — no large data)
-├── Dockerfile               # Task 6 — Inference container
+│   └── id2label.json           # Label mapping (only small file committed)
+├── Dockerfile                  # Task 6 — Inference container
 ├── requirements.txt
 ├── .gitignore
 └── README.md
@@ -77,67 +79,53 @@ MLOPS_Group/
 
 ---
 
-##  Model
+## Model
 
-**`distilbert-base-uncased`** — a distilled version of BERT that retains 97 % of language understanding at 40 % smaller size (~66 M parameters, ~265 MB). Chosen because it:
+**`distilbert-base-uncased`** — a distilled version of BERT retaining 97% of language understanding at 40% smaller size (~66M parameters). Chosen because it:
 
 - Fits within Kaggle free-tier GPU quota (T4 x2)
 - Is well-suited to short, noisy SMS text
-- Has a clear, well-documented HF model card
+- Achieves fast inference suitable for CPU deployment
 
 ---
 
-##  Dataset
+## Dataset
 
-**UCI SMS Spam Collection** loaded via `datasets` (`sms_spam`).
+**UCI SMS Spam Collection** loaded via HuggingFace `datasets` (`sms_spam`).
 
 | Split | Samples | Ham % | Spam % |
 |---|---|---|---|
-| Train (70 %) | ~3,611 | 86.6 | 13.4 |
-| Validation (15 %) | ~774 | 86.6 | 13.4 |
-| Test (15 %) | ~774 | 86.6 | 13.4 |
+| Train (70%) | 3,611 | ~87.5 | ~12.5 |
+| Validation (15%) | 774 | ~87.5 | ~12.5 |
+| Test (15%) | 774 | ~87.5 | ~12.5 |
 
-**Cleaning steps:** lowercased → whitespace normalised → deduplicated (415 removed) → zero-leakage stratified split.
-
----
-
-##  Experiment Comparison
-
-| Hyperparameter | v1 ★| v2  | v3 |
-|---|---|---|---|
-| Learning Rate | 3e-5 | 2e-5 | 3e-5 |
-| Epochs | 3 | 5 | 4 |
-| Batch Size | 16 | 32 | 16 |
-| Warmup Steps | 100 | 200 | 100 |
-| Padding | dynamic | max_length | max_length |
-| Early Stopping | No | Yes (p=2) | Yes (p=2) |
-| fp16 | Yes | Yes | Yes  |
-
-### Training Configuration and Performance
-
-Three fine-tuning experiments were conducted using different hyperparameter configurations. Versions **v2** and **v3** achieved the lowest validation loss while maintaining the same high classification performance (**99.35% accuracy**). Among all runs, **v2** produced the best validation loss (**0.0292**), making it the selected model for final evaluation.
-
-| Version | Learning Rate | Epochs | Batch Size | Accuracy | F1 Weighted | F1 Macro | Precision | Recall | Val Loss |
-| ------- | ------------- | ------ | ---------- | -------- | ----------- | -------- | --------- | ------ | -------- |
-| v1      | 3e-5          | 3      | 16         | 0.9935   | 0.9935      | 0.9849   | 0.9935    | 0.9935 | 0.0539   |
-| v2      | 2e-5          | 5      | 32         | 0.9935   | 0.9935      | 0.9851   | 0.9935    | 0.9935 | 0.0292   |
-| v3      | 2e-5          | 5      | 32         | 0.9935   | 0.9935      | 0.9851   | 0.9935    | 0.9935 | 0.0376   |
-
-
-> Fill in Accuracy, F1, and Val Loss after running both Kaggle experiments. See [W&B dashboard](https://wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group) for live charts.
+**Cleaning steps:** lowercased → whitespace normalised → 415 duplicates removed → zero-leakage stratified split (verified with set-intersection checks).
 
 ---
 
-##  Setup & Installation
+## Experiment Comparison
+
+| Version | LR | Epochs | Batch | Accuracy | F1 Weighted | F1 Macro | Val Loss |
+|---|---|---|---|---|---|---|---|
+| v1 | 3e-5 | 3 | 16 | 0.9935 | 0.9935 | 0.9849 | 0.0539 |
+| v2 ★ Best | 2e-5 | 5 | 32 | 0.9935 | 0.9935 | 0.9851 | **0.0292** |
+| v3 | 2e-5 | 5 | 32 | 0.9935 | 0.9935 | 0.9851 | 0.0376 |
+| v4 | 1e-5 | 4 | 16 | — | — | — | — |
+
+**v2** selected as the best model (lowest validation loss: 0.0292). All runs tracked in the [W&B dashboard](https://wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group).
+
+---
+
+## Setup & Installation
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/g25ait2032-prog/MLOPS_Group.git
-cd MLOPS_Group
+git clone https://github.com/g25ait2032-prog/mlops-group36-iitj.git
+cd mlops-group36-iitj
 
 # 2. Create a virtual environment
 python -m venv venv
-source venv/bin/activate      # Windows: venv\Scripts\activate
+source venv/bin/activate       # Windows: venv\Scripts\activate
 
 # 3. Install dependencies
 pip install -r requirements.txt
@@ -145,9 +133,10 @@ pip install -r requirements.txt
 
 ---
 
-##  Running Each Step
+## Running Each Step
 
 ### Step 1 — Prepare Data (local)
+
 ```bash
 python src/prepare_data.py
 # Outputs: data/train.csv, data/validation.csv, data/test.csv,
@@ -155,13 +144,15 @@ python src/prepare_data.py
 ```
 
 ### Step 2 — Train on Kaggle
-1. Upload `notebooks/mlops-gr-assignment.ipynb` into a new Kaggle Notebook.
+
+1. Upload `notebooks/MLOps_Group36_Final.ipynb` into a new Kaggle Notebook.
 2. Upload `data/train.csv`, `data/test.csv`, `data/id2label.json` as a Kaggle Dataset.
 3. Enable GPU: **Settings → Accelerator → GPU T4 x2**.
-4. Add Kaggle Secrets: `WANDB_API_KEY_gr`, `HF_TOKEN_gr`.
-5. Set `VERSION = "v1"` in Cell 4 and run. Repeat for `"v2"` and `"v3"`.
+4. Add Kaggle Secrets: `WANDB_API_KEY_gr`, `HF_TOKEN_gr`, `GITHUB_TOKEN`.
+5. Set `VERSION = "v1"` in the config cell and run. Repeat for `"v2"`, `"v3"`, `"v4"`.
 
 ### Step 3 — Run Inference Locally
+
 ```bash
 export HF_TOKEN=your_token
 export HF_MODEL=nagaananth/MLOPS_group-v2
@@ -170,48 +161,66 @@ python src/inference.py
 ```
 
 ### Step 4 — Docker
+
 ```bash
-# Build
-docker build --build-arg HF_MODEL_NAME=nagaananth/MLOPS_group-v2 \
-             -t mlops_group-inference:latest .
-
-# Run locally
-docker run --rm \
-  -e HF_TOKEN=your_token \
-  -e INPUT_TEXT="Win a free car now!" \
-  mlops_group-inference:latest
-
 # Pull from GHCR (no build needed)
 docker pull ghcr.io/g25ait2032-prog/mlops_group-inference:latest
 docker run --rm \
   -e HF_TOKEN=your_token \
   -e INPUT_TEXT="Win a free car now!" \
   ghcr.io/g25ait2032-prog/mlops_group-inference:latest
+
+# Or pull from Docker Hub
+docker pull dvnananth/mlops-group36:v1
+docker run --rm \
+  -e INPUT_TEXT="Win a free car now!" \
+  dvnananth/mlops-group36:v1
 ```
 
 ### Step 5 — GitHub Actions Inference (manual)
+
 1. Go to **Actions → Inference → Run workflow**.
 2. Enter the text you want to classify.
 3. Check the run logs for the predicted label and confidence score.
 
 ---
 
-##  GitHub Secrets Required
+## GitHub Secrets Required
 
 | Secret | Description |
 |---|---|
 | `HF_TOKEN` | Hugging Face write token |
 | `HF_MODEL` | HF repo ID (e.g. `nagaananth/MLOPS_group-v2`) |
 | `WANDB_API_KEY` | W&B API key |
+| `GITHUB_TOKEN` | Auto-provided by GitHub Actions |
 
 Add via: **Settings → Secrets and Variables → Actions → New repository secret**
 
 ---
 
-##  Notes
+## Inference Output Examples
+
+```json
+{
+  "text": "Congratulations! You've won a free iPhone. Click here now.",
+  "label": "spam",
+  "confidence": 0.9804
+}
+```
+
+```json
+{
+  "text": "Hey, are we meeting at 5 PM today?",
+  "label": "ham",
+  "confidence": 0.9982
+}
+```
+
+---
+
+## Notes
 
 - Training is done **only on Kaggle** — GitHub Actions handles CI (linting) and inference only.
 - Large data files (`train.csv`, `test.csv`) are excluded via `.gitignore`; only `id2label.json` is committed.
-- Three experiment versions (v1, v2, v3) are visible in the W&B dashboard — set project visibility to **Public** before submission.
-- All links must be publicly accessible at submission time.
-
+- All four experiment versions (v1–v4) are visible in the W&B dashboard — project visibility is set to **Public**.
+- All links are publicly accessible.
