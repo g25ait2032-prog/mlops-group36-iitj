@@ -1,0 +1,13 @@
+{
+  "group": "Group 36",
+  "institute": "IIT Jodhpur",
+  "task": "SMS Spam Classification \u2014 DistilBERT",
+  "github_repo": "https://github.com/g25ait2032-prog/mlops-group36-iitj",
+  "wandb_project": "https://wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group",
+  "hf_models": {
+    "v1": "https://huggingface.co/nagaananth/MLOPS_group-v1",
+    "v2": "https://huggingface.co/nagaananth/MLOPS_group-v2",
+    "v3": "https://huggingface.co/nagaananth/MLOPS_group-v3"
+  },
+  "ghcr_image": "ghcr.io/g25ait2032-prog/mlops_group-inference:latest"
+}
