@@ -2,8 +2,6 @@
   "dataset_name": "UCI SMS Spam Collection (HuggingFace: sms_spam)",
   "hf_source": "datasets.load_dataset('sms_spam', split='train')",
   "seed": 42,
-  "data_version": 1,
-  "git_tag": "data-v1",
   "split_ratios": {
     "train": 0.7,
     "validation": 0.15,
