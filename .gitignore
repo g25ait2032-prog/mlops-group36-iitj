@@ -1,8 +1,6 @@
-.venv/
-__pycache__/
 *.pyc
-
-data/processed/
-data/raw/
-
+__pycache__/
 .env
+*.pth
+results-*/
+*.log
