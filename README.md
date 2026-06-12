@@ -11,15 +11,15 @@ SMS Spam Classification with DistilBERT.
 
 ## Resource	Link
 
-GitHub Repository	https://github.com/g25ait2032-prog/mlops-group36-iitj 
+GitHub Repository : 	https://github.com/g25ait2032-prog/mlops-group36-iitj 
 
-Kaggle Notebook Version1	https://www.kaggle.com/code/sudebghoshg25ait2113/mlops-group36-final-v1 
+Kaggle Notebook Version1 :	https://www.kaggle.com/code/sudebghoshg25ait2113/mlops-group36-final-v1 
 
-Kaggle Notebook Version2	https://www.kaggle.com/code/shrikrishnatripathi/mlops-g25ait2103-v2 
+Kaggle Notebook Version2 :	https://www.kaggle.com/code/shrikrishnatripathi/mlops-g25ait2103-v2 
 
-Kaggle Notebook Version3	https://www.kaggle.com/code/g25ait2032/mlops-group36-final-v3
+Kaggle Notebook Version3 :	https://www.kaggle.com/code/g25ait2032/mlops-group36-final-v3
 
-Kaggle Notebook Version4	https://www.kaggle.com/code/anukumarkg25ait2016/mlops-group36-data-preprocessing-g25ait2016 
+Kaggle Notebook Version4 :	https://www.kaggle.com/code/anukumarkg25ait2016/mlops-group36-data-preprocessing-g25ait2016 
 
 Hugging Face (v1)	https://huggingface.co/sudebghosh/MLOPS_group-v1
 
