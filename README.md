@@ -6,7 +6,7 @@ SMS Spam Classification with DistilBERT.
 |------|------|------|
 | G25AIT2032 | Naga Ananth | Admin / Git Owner |
 | G25AIT2016 | AnuKumar | Dataset preparation |
-| G25AIT2103 | Shri Krishna | Model experiments |
+| G25AIT2103 | ShriKrishna | Model experiments |
 | G25AIT2113 | Sudeb | Inference, evaluation |
 
 ## Links
