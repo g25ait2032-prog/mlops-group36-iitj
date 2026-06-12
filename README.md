@@ -31,7 +31,7 @@ Hugging Face (v4)	https://huggingface.co/Aukrk
 
 W&B Dashboard	https://wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group/workspace?nw=nwuserg25ait2103 
 
-Docker Image	ghcr.io/g25ait2032-prog/mlops_group-inference:latest 
+Docker Image	https://github.com/g25ait2032-prog/MLOPS_Group/pkgs/container/mlops_group-inference 
 
 Docker Dashboard	https://hub.docker.com/r/dvnananth/mlops-group36 
 
