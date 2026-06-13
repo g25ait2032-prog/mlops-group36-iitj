@@ -29,7 +29,7 @@
 | HF Model — v3 | [nagaananth/MLOPS_group-v3](https://huggingface.co/nagaananth/MLOPS_group-v3) |
 | HF Model — v4 | [nagaananth/MLOPS_group-v4](https://huggingface.co/nagaananth/MLOPS_group-v4) |
 | W&B Project Dashboard | [wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group](https://wandb.ai/g25ait2032-iit-jodhpur/MLOPS_Group) |
-| Docker Image (GHCR) | `ghcr.io/g25ait2032-prog/mlops_group-inference:latest` |
+| Docker Image (GHCR) | https://github.com/g25ait2032-prog/MLOPS_Group/pkgs/container/mlops_group-inference  |
 | Docker Image (Hub) | `dvnananth/mlops-group36:v1` |
 | GitHub Actions | [Actions Dashboard](https://github.com/g25ait2032-prog/mlops-group36-iitj/actions) |
 
